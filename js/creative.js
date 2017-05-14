@@ -99,7 +99,6 @@
                 });
               } catch (err) {}
               $('#found-amount').text(data.length + ' bzw. ' + data2.results + ' Einträge');
-              debugger
               data.forEach(function(item) {
                 var item = "<li><strong>" +
                  item.Name + ":</strong> Diebstahl am " + item.BreachDate + ", Veröffentlichung am "
