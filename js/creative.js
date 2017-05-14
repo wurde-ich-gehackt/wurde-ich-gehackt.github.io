@@ -99,6 +99,10 @@
         }
         $('#result-status').hide();
         checkButton.find('i').show();
+        try {
+            window.woopra.track("check-button");
+        } catch (err) {}
+        
         window.hibp
           .breachedAccount(email)
           .then((data) => {
@@ -106,6 +110,9 @@
                 checkButton.find('i').hide();
                 if (data) {
                   console.log(data);
+                  try {
+                    window.woopra.track("check", {found: true});
+                  } catch (err) {}
                   if (data.length > 1) {
                     $('#found-amount').text('wurden' + data.length + ' Einträge');
                   } else {
@@ -123,8 +130,9 @@
                   $('#result-found').show();
                 } else {
                   $('#result-ok').show();
-                  // Phew! We're clear.
-                  console.log('Good news — no pwnage found!');
+                  try {
+                    window.woopra.track("check", {found: false});
+                  } catch (err) {}
                 }
             } catch (err) {
                 console.error(err);
@@ -139,6 +147,15 @@
             $('#result-message').text('Es gab einen Fehler bei der Datenabfrage:' + err.message);
             $('#result-status').show();
           });
-    })
+
+
+(function(){
+        var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+})("woopra");
+
+woopra.config({
+    domain: 'wurde-ich-gehackt.github.io'
+});
+woopra.track();
 
 })(jQuery); // End of use strict
