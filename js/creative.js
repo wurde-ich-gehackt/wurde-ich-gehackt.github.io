@@ -99,13 +99,14 @@
                 });
               } catch (err) {}
               $('#found-amount').text(data.length + ' bzw. ' + data2.results + ' Einträge');
-              
+              debugger
               data.forEach(function(item) {
                 var item = "<li><strong>" +
                  item.Name + ":</strong> Diebstahl am " + item.BreachDate + ", Veröffentlichung am "
                   + item.AddedDate.substr(0, 10) + " (" 
                   + item.DataClasses.join(', ') + ")  <a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" 
-                  + item.Name + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
+                  + item.Name + "'>" + (item.IsVerified ? "<i title='verifiziert' class='fa fa-check'></i>" : "")
+                  + "<i title='Quelle' class='fa fa-link'></i></a></li>";
                 list.append(item);
               });
               list.append('<li role="separator" class="divider"></li>');
@@ -113,7 +114,8 @@
                 var item = "<li><strong>"+
                  item.title + ":</strong> Veröffentlichung am "
                   + item.date_leaked.substr(0, 10) + " <a target='hackedemails' href='" 
-                  + item.details + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
+                  + item.details + "'>" + (item.verified ? "<i title='verifiziert' class='fa fa-check'></i>" : "")
+                  + "<i title='Quelle' class='fa fa-link'></i></a></li>";
                 list.append(item);
               });
 
