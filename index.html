@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Wurde ich gehackt?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+ -->
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.css" rel="stylesheet">
+
+    <!-- Temporary navbar container fix -->
+    <style>
+    .navbar-toggler {
+        z-index: 1;
+    }
+    
+    @media (max-width: 576px) {
+        nav > .container {
+            width: 100%;
+        }
+    }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="mainNav">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Wurde ich gehackt?</a>
+            <div class="collapse navbar-collapse" id="navbarExample">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#was-nun">Was nun?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#warum">Warum ich das mache</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontakt">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <div class="jumbotron">
+                    <h3>Prüfe ob deine E-Mail Adresse im Zusammenhang mit einem Datendiebstahl veröffentlich worden ist</h3>
+                    <br>
+                    <div class="input-group input-group-lg">
+                        <input name="email" id="check-email" type="email" class="form-control" maxlength="255">
+                    </div>
+                    <br>
+                    <p><a id="check-button" class="btn btn-lg btn-success" href="javascript:;" role="button">Jetzt prüfen <i style="display: none;" class="fa fa-spinner fa-spin"></i></a></p>
+
+                    <div id="result-status" style="display: none;" class="alert alert-info" role="alert">
+                      <strong>Oops!</strong> <span id="result-message"></span>
+                    </div>
+                    <div id="result-ok" style="display: none;" class="alert alert-success" role="alert">
+                      <strong>Sauber!</strong> Die E-Mail Adresse ist in keinem der registrierten Datendiebstähle gefunden worden.
+                    </div>
+                    <div id="result-found" style="display: none;" class="alert alert-danger" role="alert">
+                      <p class="text-danger">Es <span id="found-amount"></span> gefunden.</p>
+                      <ul class="list-unstyled mb-0 text-danger" id="found-list">
+                      </ul>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="was-nun">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading text-white">Bin betroffen, was nun?</h2>
+                    <hr class="light">
+                    <p class="text-faded">
+                        Als erstes, keine Panik!<br>
+                        Finde raus, welche Daten genau gestohlen worden sind.
+                        Wenn es sich um Passwörter im Klartext handelt oder schlecht verschlüsselte Passwörter (entweder ein schwaches Passwort und/oder ein heutzutage unsichers Verschlüsselungsverfahren), ändere das Passwort bei 
+                        dem jeweiligen Dienst als erstes.<br>
+                        Du solltest spätestens jetzt verstehen, dass du bei jedem Dienst ein anderes Passwort verwenden solltest anstatt immer wieder das gleiche zu benutzen.
+                        <br><br>
+
+                        In den meiten Fällen wurden die Daten schon vor mehreren Jahren gestohlen. Die Veröffentlichung hat nur erst vor kurzem stattgefunden. Eventuell hast du dein Passwort also schon längst geändert bzw. nutzt es nicht mehr.
+                        <br><br>
+
+                        Deine E-Mail Adresse ist jedoch wahrscheinlich schon für
+                        Spam missbraucht worden. Da hilft nur ein guter Spam-Filter oder eine neue Adresse.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="warum">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Wieso machst du das?</h2>
+                    <hr class="primary">
+                    <p class="text-black">
+                        Ich habe im Mai 2017 eine E-Mail von einem Administrator erhaltne, der mir berichtet hat, dass meine alte Uni Adresse bei einem Datendiebstahl enthalten sei.<br>
+                        Ich hatte schon vom Diebstahl bei Dropbox gehört, doch auf der Seite https://haveibeenpwned.com habe ich festgestellt, dass mehrere meiner E-Mail Adressen bei mehreren Datendiebstählen betroffen seien. Unter anderem auch im Klartext. Ich war ziemlich erschrocken aber wollte es genau wissen und versuchte an die Daten, die ja nun bereits veröffentlich worden sind, dranzukommen. Nach einer Weile habe ich die riesen Datenmengen gefunden und nach meiner E-Mail Adresse gesucht und tatsächlich waren 2 meiner Passwörter im Klartext vorhanden. Das schlimme ist, das eins davon sehr ähnlich zu meinem Amazon Passwort war.
+                        <br><br>
+                        Ich suchte nach E-Mail Adressen aus meinem Kontaktbuch und war schockiert wieviele davon
+                        auch betroffen waren: alte und neue Freunde, Eltern, Cousins, Arbeitskollegen, Steuerberater, etc.
+
+                        <br><br>
+                        Mein Ziel ist es mit dieser Seite alle zu sensibilieren, auf ihre Daten im Internet acht zu geben und Passwörter sorgfältig auszusuchen (am besten mit einem Passwort-Manager generieren zu lassen).<br>
+                        Die bisherigen Lösungen sind entweder nicht in deutscher Sprache vorhanden, bieten keine interaktive und schnelle Resultate oder sind für die nicht technikaffinen Personen nicht verständlich. Ich hoffe ich kann mit dieser Seite genau diese Lück schließen.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-primary" id="faq">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center white-links">
+                    <h2 class="section-heading text-white">FAQ</h2>
+                    <hr class="light">
+<h5><a id="Werden_EMails_gespeichert_die_geprft_werden_0"></a>Werden E-Mails gespeichert, die geprüft werden?</h5>
+<p>Nein, es handelt sich nur um eine statische Webesite (ohne Server/Backend).<br>
+Die Datenabfrage läuft über 2 Dienste, siehe nächste Frage</p>
+<h5><a id="Was_passiert_wenn_ich_meine_EMail_berprfen_lasse_4"></a>Was passiert wenn ich meine E-Mail überprüfen lasse?</h5>
+<p>Diese Webseite greift auf zwei öffentliche Schnittstellen zu:</p>
+<ul class="list-unstyled">
+<li><a href="https://haveibeenpwned.com">https://haveibeenpwned.com</a></li>
+<li><a href="https://hacked-emails.com">https://hacked-emails.com</a></li>
+</ul>
+<h5><a id="Kann_ich_meinen_DatensatzPasswort_einsehen_10"></a>Kann ich meinen Datensatz/Passwort einsehen?</h5>
+<p>Nein, wie schon gesagt, speichere ich keine Daten, da dies nur eine statische Webseite ist. Die anderen zwei Dienste haben nur die E-Mail Adressen gespeichert</p>
+<h5><a id="Ich_will_aber__wissen_welches_PasswortDatensatz_von_mir_verffentlich_worden_ist_13"></a>Ich will aber  wissen welches Passwort/Datensatz von mir veröffentlich worden ist</h5>
+<p>Wenn du gut suchst, wirst du die Datensätze im Internet finden und selbst deinen Datensatz raussuchen können. Wenn du Hilfe brauchst, schreib mich per Twitter an.</p>
+<h5><a id="Wie_kann_ich_sicher_sein_dass_die_EMail_Adressen_bei_dieser_Webseite_oder_den_anderen_Diensten_nicht_gespeichert_und_missbraucht_werden_16"></a>Wie kann ich sicher sein, dass die E-Mail Adressen bei dieser Webseite oder den anderen Diensten nicht gespeichert und missbraucht werden.</h5>
+<p>Ich kann dir nur mit Sicherheit sagen, dies ist eine statische Webseite. Der Quellcode befindet sich hier und wird direkt von GitHub Server bereitgestellt. Mit anderen Worten: es ist für alle sichtbar welcher Quellcode sich hinter dieser Seite verbirgt:<br>
+<a href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">github.com/wurde-ich-gehackt</a></p>
+<p>Ob die anderen Dienste sich wirklich daran halten, kann ich natürlich nicht zu 100% sagen. Wenn dir das nicht ausreicht und du aber dem Hasso-Plattner-Institut an der Uni Potsdam mehr vertraust, kannst du auch dort eine Datenabfrage durchführen: <a href="https://sec.hpi.uni-potsdam.de/leak-checker/search">https://sec.hpi.uni-potsdam.de/leak-checker/search</a></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 class="section-heading">Hast du Fragen?</h2>
+                    <hr class="primary">
+                    <p>Schreib mich auf Twitter an</p>
+                </div>
+                <div class="col-lg-4 offset-lg-2 text-center">
+                    <i class="fa fa-twitter fa-3x sr-contact"></i>
+                    <p><a target="_blank" href="https://twitter.com/timaschew">@timaschew</a></p>
+                    
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-github fa-3x sr-contact"></i>
+                    <p><a target="_blank" href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">Quellcode auf GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer navbar-fixed-bottom cookies">
+      <div class="container alert alert-dismissible fade show" role="alert">
+        <p class="text-muted">Diese Website verwendet Cookies. Indem du weiter auf dieser Website navigierst, ohne die Cookie-Einstellungen Deines Internet Browsers zu ändern, stimmst Du der Verwendung von Cookies zu.
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="//unpkg.com/hibp/dist/hibp.min.js"></script>
+    <script src="js/creative.js"></script>
+
+</body>
+
+</html>
