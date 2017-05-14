@@ -51,13 +51,16 @@
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link" href="#was-ist-passiert">Worum geht's?</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#was-nun">Was nun?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#warum">Warum ich das mache</a>
+                        <a class="nav-link" href="#faq">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">FAQ</a>
+                        <a class="nav-link" href="#warum">Warum ich das mache</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#kontakt">Kontakt</a>
@@ -86,7 +89,7 @@
                       <strong>Sauber!</strong> Die E-Mail Adresse ist in keinem der registrierten Datendiebstähle gefunden worden.
                     </div>
                     <div id="result-found" style="display: none;" class="alert alert-danger" role="alert">
-                      <p class="text-danger">Es <span id="found-amount"></span> gefunden.</p>
+                      <p class="text-danger"><span id="found-amount"></span></p>
                       <ul class="list-unstyled mb-0 text-danger" id="found-list">
                       </ul>
                     </div>
@@ -96,17 +99,38 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="was-nun">
+    <section class="bg-primary" id="was-ist-passiert">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <h2 class="section-heading text-white">Du bist betroffen, was nun?</h2>
+                <div class="col-lg-8 offset-lg-2 text-center white-links">
+                    <h2 class="section-heading text-white">Worum geht es eigentlich?</h2>
                     <hr class="light">
-                    <p class="text-faded">
+                    <p class="text-black">
+                        Es gab eine Reihe von Datendiebstählen bei großen Firmen bzw. Diensten wie SONY, Adobe, Yahoo, Dropbox oder VK als auch bei kleineren verschiedene Foren. Hacker sind in die Systeme eingedrungen und haben sich dadurch Zugang zu den Datensätzen der Kunden verschafft.<br>
+                        Der Datendiebstahl bei <a target="_blank" href="http://www.spiegel.de/netzwelt/web/dropbox-neue-passwoerter-fuer-alle-nutzer-a-847576.html">Dropbox</a> erfolgte 2012 und Dropbox hat dies auch offiziell bestätigt. Die Daten wurden danach im sogenannten <a target="_blank" href="https://de.wikipedia.org/wiki/Darknet">Darknet</a> verkauft. Erst 2016 wurden viele dieser gestohlenen Daten dann "kostenlos" für alle im Clearnet (also nicht im Darknet) veröffentlich. Seitdem kann wirklich jeder diese Daten im Internet finden und einsehen.
+                        <br>
+                        Das Problem bei den gestohlenen Daten ist zum einen, dass sie ggf. Passwörter enthalten. Diese wurden entweder von dem Dienstleister nicht verschlüsselt, schlecht verschlüsselt oder sind heutzutage leicht entschlüsselbar.
+                        <br>
+                        Außerdem ist problematisch, dass viele Nutzer ein und das gleiche Passwort für verschiedene Dienste verwenden. Das kann bedeuten, dass die Hacker mit den Zugangsdaten von Dropbox auch den Zugang zu Amazon, eBay oder dem E-Mail-Postfach erhalten könnten.
+                        <br>
+                        Darüber hinaus kann ein Identitätsdiebstahl entstehen, wenn die gestohlenen Datensätze auch Telefonnummer, Anschrift, Geburtsdatum, etc. enthalten.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="was-nun">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Du bist betroffen, was nun?</h2>
+                    <hr class="primary">
+                    <p class="text-black">
                         Als erstes, keine Panik!<br>
                         Finde raus, welche Daten genau gestohlen worden sind.
-                        Wenn es sich um Passwörter im Klartext handelt oder schlecht verschlüsselte Passwörter (entweder ein schwaches Passwort und/oder ein heutzutage unsichers Verschlüsselungsverfahren), ändere das Passwort bei 
-                        dem jeweiligen Dienst als erstes.<br>
+                        Wenn Passwörter gestohlen worden sind, ändere das Passwort bei dem jeweiligen Dienst. Falls du das gleiche Passwort zum Zeitpunkt des Diebstahls auch wo anders verwendet hast, solltest du die Passwörter bei den anderen Diensten ebenfalls ändern. Wenn du dich nicht mehr daran erinnern kannst, solltest du am besten alle Passwörter in Kombination mit der E-Mail Adresse ändern.<br>
                         Du solltest spätestens jetzt verstehen, dass du bei jedem Dienst ein anderes Passwort verwenden solltest anstatt immer wieder das gleiche zu benutzen.
                         <br><br>
 
@@ -115,30 +139,6 @@
 
                         Deine E-Mail Adresse ist jedoch wahrscheinlich schon für
                         Spam missbraucht worden. Da hilft nur ein guter Spam-Filter oder eine neue Adresse.
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="warum">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Wieso mache ich das?</h2>
-                    <hr class="primary">
-                    <p class="text-black">
-                        Ich habe im Mai 2017 eine E-Mail von einem Administrator erhalten, der mir berichtet hat, dass meine alte Uni Adresse bei einem Datendiebstahl enthalten sei.<br>
-                        Ich hatte schon vom Diebstahl bei Dropbox gehört, doch auf der Seite https://haveibeenpwned.com habe ich festgestellt, dass mehrere meiner E-Mail Adressen bei mehreren Datendiebstählen betroffen seien. Unter anderem sei ds Passwort auch im Klartext gewesen. Ich war ziemlich erschrocken aber wollte es genau wissen ob dies stimmt.Ich versuchte an die Datensätze zu kommen, die ja nun bereits irgendwo im Netz liegen. Nach einer Weile habe ich die riesen Datenmengen tatsächlich gefunden und nach meiner E-Mail Adresse gesucht. Und wahrhaftig waren 2 meiner Passwörter im Klartext zu sehen. Das schlimme ist, das eins davon sehr große Ähnlichkeit zu meinem Amazon Passwort hatte.
-                        <br><br>
-                        Ich suchte nach E-Mail Adressen aus meinem Adressbuch und war schockiert wieviele davon
-                        auch betroffen waren: alte und neue Freunde, Eltern, Cousins, Arbeitskollegen, Steuerberater, etc.
-
-                        <br><br>
-                        Mein Ziel ist es mit dieser Seite alle zu sensibilieren, auf ihre Daten im Internet acht zu geben und Passwörter sorgfältig auszusuchen (am besten mit einem Passwort-Manager generieren zu lassen).<br>
-                        Die bisherigen Lösungen sind entweder nicht in deutscher Sprache vorhanden, bieten keine interaktive und schnelle Resultate oder sind für die nicht technikaffinen Personen nicht verständlich. Ich hoffe ich kann mit dieser Seite genau diese Lück schließen.
-
                     </p>
                 </div>
             </div>
@@ -157,27 +157,54 @@ Die Datenabfrage läuft über 2 Dienste, siehe nächste Frage</p>
 <h5>Was passiert wenn ich meine E-Mail überprüfen lasse?</h5>
 <p>Diese Webseite greift auf zwei öffentliche Schnittstellen zu:</p>
 <ul class="list-unstyled">
-<li><a href="https://haveibeenpwned.com">https://haveibeenpwned.com</a></li>
-<li><strike><a href="https://hacked-emails.com">https://hacked-emails.com</a></strike></li>
+<li><a target="_blank" href="https://haveibeenpwned.com">https://haveibeenpwned.com</a></li>
+<li><a target="_blank" href="https://hacked-emails.com">https://hacked-emails.com</a></li>
 </ul>
+<p>
+Die beiden Dienste (haveibeenpwned und hacked-emails) führen einen Datenabgleich mit der E-Mail durch und senden die Ergebnisse zurück zu dieser Seite. Dein Browser stellt eine direkte und sichere (HTTPS) Verbindung zu der API (Programmierschnittstelle) der beiden Diensten her.</p>
+
 <h5>Kann ich meinen Datensatz/Passwort einsehen?</h5>
-<p>Nein. Wie schon gesagt,  hat diese Seite keinen direkten Zugriff auf die Daten, da dies nur eine statische Webseite ist. Die anderen zwei Dienste haben in ihren Datensätzen, die sie aus den Datendiebstahl extrahiert haben, nur E-Mail Adressen enthalten</p>
+<p>Nein. Wie schon gesagt, hat diese Seite keinen direkten Zugriff auf die Daten, da dies nur eine statische Webseite ist. Die beiden Dienste zum Datenabgleich enthalten nur E-Mail Adressen in ihren Datenbanken.</p>
 
 <h5>Was genau bedeutet schlecht verschlüsseltes Passwort?</h5>
-<p>Aus Sicherheitsgründen sollten Dienste Passwörter ihrer Nutzer niemals im Klartext speichern, sondern verschlüsseln. Daran halten sich leider nicht alle Dienste (z.B: VK). Doch selbst wenn die Passwörter in den Datenbanken der Dienste verschlüsselt worden sind, ist dies keine Garantie, dass man daraus das Passwort im Klartext zurückrechnen kann. Es gibt viele Faktoren wie das <a target="_blank" href="https://de.wikipedia.org/wiki/Symmetrisches_Kryptosystem">Verschlüsselungsverfahren</a> und das sogenannte <a target="_blank" href="https://de.wikipedia.org/wiki/Salt_(Kryptologie)">"Salz"</a>.
-Das Verfahren MD5 gilt schon lange als unsicher, neuerdings auch das <a target="_blank" href="https://www.heise.de/security/meldung/Admins-aufgepasst-SHA1-Zertifikate-vor-dem-endgueltigen-Aus-3460868.html">SHA1</a>Verfahren. Das bedeutet entweder dass man bei diesen Verfahren das Passwort wieder entschlüsseln kann oder, dass für relativ einfache bzw. kurze Passwörter es Listen im Internet gibt, die das Passwort und den verschlüsselten Wert enthalten. Diese sind durch Ausprobieren aller dieser Passwörter entstanden.
+<p>Aus Sicherheitsgründen sollten Dienste wie Dropbox die Passwörter ihrer Nutzer niemals im Klartext speichern, sondern verschlüsseln. Daran halten sich leider nicht alle Dienste (z.B: VK). Doch selbst wenn die Passwörter in den Datenbanken der Dienste verschlüsselt worden sind, ist dies keine Garantie, dass man daraus das Passwort im Klartext zurückrechnen kann. Es gibt viele Faktoren wie das <a target="_blank" href="https://de.wikipedia.org/wiki/Symmetrisches_Kryptosystem">Verschlüsselungsverfahren</a> und das sogenannte <a target="_blank" href="https://de.wikipedia.org/wiki/Salt_(Kryptologie)">"Salz"</a>.
+Das Verfahren <a target="_blank" href="https://www.heise.de/security/meldung/Autor-haelt-md5crypt-nicht-mehr-fuer-sicher-1614781.html">MD5</a> gilt schon lange als unsicher, neuerdings auch das <a target="_blank" href="https://www.heise.de/security/meldung/Admins-aufgepasst-SHA1-Zertifikate-vor-dem-endgueltigen-Aus-3460868.html">SHA1</a> Verfahren. Das bedeutet also, dass man bei diesen Verfahren das Passwort wieder entschlüsseln kann.
 </p>
 
-<h5>Ich will aber wissen welches Passwort/Datensatz von mir veröffentlich worden ist</h5>
+<h5>Ich will aber wissen welches Passwort von mir veröffentlich worden ist</h5>
 <p>Du kannst dich anhand des Datums versuchen zu erinnern, welches Passwort du damals genutzt hast. Ansonsten kannst du versuchen die aus dem Datendiebstahl veröffentlichen Datensätze selbst im Internet zu finden und anschließend deinen Datensatz raussuchen. Wenn du Hilfe brauchst, schreib mich per Twitter an.</p>
 
 <h5>Wie kann ich sicher sein, dass die E-Mail Adressen bei dieser Webseite oder den anderen Diensten nicht gespeichert und missbraucht werden.</h5>
-<p>Ich kann dir nur mit Sicherheit sagen, dass dies ist eine statische Webseite ist. Der Quellcode befindet sich <a href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">hier</a> und wird direkt von GitHub bereitgestellt. Mit anderen Worten: es ist für alle jederzeit sichtbar, welcher Quellcode sich hinter dieser Seite verbirgt.
+<p>Ich kann dir nur mit Sicherheit sagen, dass dies ist eine statische Webseite ist. Der Quellcode befindet sich <a target="_blank" href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">hier</a> und wird direkt von GitHub bereitgestellt. Mit anderen Worten: es ist für alle jederzeit sichtbar, welcher Quellcode sich hinter dieser Seite verbirgt.
 </p>
-<p>Ob die anderen Dienste sich wirklich daran halten, kann ich natürlich nicht zu 100% sagen. Wenn dir das nicht ausreicht und du aber dem Hasso-Plattner-Institut an der Uni Potsdam mehr vertraust, kannst du auch dort eine Datenabfrage durchführen: <a href="https://sec.hpi.uni-potsdam.de/leak-checker/search">https://sec.hpi.uni-potsdam.de/leak-checker/search</a></p>
+<p>Ob die anderen Dienste (haveibeenpwned und hacked-emails) sich wirklich daran halten, kann ich natürlich nicht zu 100% sagen. Wenn dir das nicht ausreicht und du aber dem Hasso-Plattner-Institut an der Uni Potsdam mehr vertraust, kannst du auch dort eine Datenabfrage durchführen: <a target="_blank" href="https://sec.hpi.uni-potsdam.de/leak-checker/search">HPI Identity Leak Checker</a></p>
 
 <h5>Wird auf dieser Seite also gar nichts gespeichert?</h5>
 <p>Doch und zwar Cookies + anonymes Besuchertracking (sowas wie Google Analytics). Ich möchte nämlich gerne wissen wieviele Personen diese Webseite besuchen und nutzen. Die geprüfte E-Mail wird selbstverständlich <strong>nicht</strong> in die Statistik aufgenommen. Wenn dir das nicht gefällt, lass es sein oder besorge dir einen Werbe-Blocker oder nutze den Service vom Hasso-Plattner-Institut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="warum">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Wieso mache ich das?</h2>
+                    <hr class="primary">
+                    <p class="text-black">
+                        Ich habe im Mai 2017 eine E-Mail von einem Administrator erhalten, der mir berichtet hat, dass meine alte Uni Adresse bei einem Datendiebstahl enthalten sei.<br>
+                        Ich hatte schon vom Diebstahl bei Dropbox gehört, doch auf der Seite <a target="_blank" href="https://haveibeenpwned.com">https://haveibeenpwned.com</a> habe ich festgestellt, dass mehrere meiner E-Mail Adressen bei mehreren Datendiebstählen betroffen seien. Unter anderem seien Passwörter auch im Klartext gewesen. Ich wollte es aber genau wissen ob dies stimmt. Also suchte ich im Internet nach den Datensätzen, die ja nun bereits irgendwo im Netz liegen. Nach einer Weile habe ich die riesen Datenmengen tatsächlich gefunden und nach meiner E-Mail Adresse gesucht. Und wahrhaftig waren 2 meiner Passwörter im Klartext zu sehen.
+                        <br><br>
+
+                        Ich suchte nach E-Mail Adressen aus meinem Adressbuch stellte fest, dass sehr viele aus meinem Bekanntenkreis ebenfalls betroffen sind.
+                        <br><br>
+
+                        Das Ziel dieser Seite ist es, soviele Personen wie möglich zu sensibilieren, dass diese Datendiebstähle stattgefunden haben und gleichzeitig darauf aufmerksam zu machen, dass man sichere Passwörter verwenden soll und diese nicht für andere Dienste wiederverwendet, dabei kann ein Passwort-Manager helfen ;)
+                        <br>
+                        Die bisherigen Lösungen sind entweder nicht in deutscher Sprache verfügbar oder bieten keine interaktiven Resultate. Ich hoffe ich kann mit dieser Seite genau diese Lücke schließen.
+
+                    </p>
                 </div>
             </div>
         </div>
@@ -220,6 +247,7 @@ Das Verfahren MD5 gilt schon lange als unsicher, neuerdings auch das <a target="
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom scripts for this template -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.0/es6-promise.auto.min.js"></script>
     <script src="//unpkg.com/hibp/dist/hibp.min.js"></script>
     <script>
 (function(){

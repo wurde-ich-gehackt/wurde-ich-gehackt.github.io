@@ -72,19 +72,66 @@
      * Custom Code
      */
 
-    function feedback(data) {
-        if (data == null) {
-
-        }
-    }
+    var list = $('#found-list');
     var checkButton = $('#check-button');
 
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     }
-    checkButton.click(function() {
-        var list = $('#found-list');
+
+    function checkHackedEmails(email) {
+        var URL = 'https://hacked-emails.com/api?q=' + email;
+        return $.get(URL);
+    }
+
+    function handleResults(results) {
+        console.log(results);
+        var data = results.hibp;
+        var data2 = results.hackedEmails;
+        try {
+            checkButton.find('i').hide();
+            if (data.length > 0 || data2.results > 0) {
+              try {
+                window.woopra.track("checked-found", {
+                    hibp: data.length,
+                    hackedEmails: data2.results
+                });
+              } catch (err) {}
+              $('#found-amount').text(data.length + ' bzw. ' + data2.results + ' Einträge');
+              
+              data.forEach(function(item) {
+                var item = "<li><strong>" +
+                 item.Name + ":</strong> Diebstahl am " + item.BreachDate + ", Veröffentlichung am "
+                  + item.AddedDate.substr(0, 10) + " (" 
+                  + item.DataClasses.join(', ') + ")  <a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" 
+                  + item.Name + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
+                list.append(item);
+              });
+              list.append('<li role="separator" class="divider"></li>');
+              data2.data.forEach(function(item) {
+                var item = "<li><strong>"+
+                 item.title + ":</strong> Veröffentlichung am "
+                  + item.date_leaked.substr(0, 10) + " <a target='hackedemails' href='" 
+                  + item.details + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
+                list.append(item);
+              });
+
+              $('#result-found').show();
+            } else {
+              $('#result-ok').show();
+              try {
+                window.woopra.track("checked-nothing");
+              } catch (err) {}
+            }
+        } catch (err) {
+            console.error(err);
+            $('#result-message').html('Es gab einen Fehler Verarbeitung des Ergebnisses der Datenabfrage:<br>' + err.toString());
+            $('#result-status').show();   
+        }
+    }
+
+    function triggerClickAndKey() {
         // reset
         list.empty();
         $('#result-status').hide();
@@ -103,49 +150,32 @@
             window.woopra.track("pess-button");
         } catch (err) {}
         
+        var results = {};
         window.hibp
           .breachedAccount(email)
-          .then((data) => {
-            try {
-                checkButton.find('i').hide();
-                if (data) {
-                  console.log(data);
-                  try {
-                    window.woopra.track("checked-found");
-                  } catch (err) {}
-                  if (data.length > 1) {
-                    $('#found-amount').text('wurden' + data.length + ' Einträge');
-                  } else {
-                    $('#found-amount').text('wurde 1 Eintrag');
-                  }
-                  
-                  data.forEach(function(item) {
-                    var item = "<li><a target='blank' href='http://" + item.Domain + "'>" +
-                     item.Name + ":</a>, Diebstahl: " + item.BreachDate + ", Veröffentlichung: "
-                      + item.AddedDate.substr(0, 10) + ", Daten: " 
-                      + item.DataClasses.join(', ') + ",  <a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" 
-                      + item.Name + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
-                    list.append(item)
-                  })
-                  $('#result-found').show();
-                } else {
-                  $('#result-ok').show();
-                  try {
-                    window.woopra.track("checked-nothing");
-                  } catch (err) {}
-                }
-            } catch (err) {
-                console.error(err);
-                $('#result-message').html('Es gab einen Fehler Verarbeitung des Ergebnisses der Datenabfrage:<br>' + err.toString());
-                $('#result-status').show();   
-            }
+          .then(function(data) {
+            results.hibp = data || [];
+            return checkHackedEmails(email);
+          }).then(function(data) {
+            results.hackedEmails = data;
+            handleResults(results);
           })
           .catch((err) => {
             checkButton.find('i').hide()
             // Something went wrong.
-            console.log(err.message);
-            $('#result-message').text('Es gab einen Fehler bei der Datenabfrage:' + err.message);
+            console.error(err);
+            $('#result-message').html('Es gab einen Fehler bei der Datenabfrage:<br>' + err.message);
             $('#result-status').show();
           });
+    }
+
+    $(document).keypress(function(e) {
+        if (e.which == 13) {
+            triggerClickAndKey();
+        }
+    });
+
+    checkButton.click(function() {
+        triggerClickAndKey();
     });
 })(jQuery); // End of use strict

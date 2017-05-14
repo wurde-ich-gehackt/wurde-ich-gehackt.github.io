@@ -367,3 +367,9 @@ header.masthead {
 .white-links a {
   color: #fff;
 }
+
+li.divider {
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 0 auto;
+}
