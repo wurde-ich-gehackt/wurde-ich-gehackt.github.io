@@ -100,7 +100,7 @@
         $('#result-status').hide();
         checkButton.find('i').show();
         try {
-            window.woopra.track("check-button");
+            window.woopra.track("pess-button");
         } catch (err) {}
         
         window.hibp
@@ -111,7 +111,7 @@
                 if (data) {
                   console.log(data);
                   try {
-                    window.woopra.track("check", {found: true});
+                    window.woopra.track("checked-found");
                   } catch (err) {}
                   if (data.length > 1) {
                     $('#found-amount').text('wurden' + data.length + ' Einträge');
@@ -121,7 +121,7 @@
                   
                   data.forEach(function(item) {
                     var item = "<li><a target='blank' href='http://" + item.Domain + "'>" +
-                     item.Name + "</a>, Diebstahl: " + item.BreachDate + ", Veröffentlichung: "
+                     item.Name + ":</a>, Diebstahl: " + item.BreachDate + ", Veröffentlichung: "
                       + item.AddedDate.substr(0, 10) + ", Daten: " 
                       + item.DataClasses.join(', ') + ",  <a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" 
                       + item.Name + "'><i title='Quelle' class='fa fa-info'></i></a></li>";
@@ -131,7 +131,7 @@
                 } else {
                   $('#result-ok').show();
                   try {
-                    window.woopra.track("check", {found: false});
+                    window.woopra.track("checked-nothing");
                   } catch (err) {}
                 }
             } catch (err) {

@@ -100,7 +100,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
-                    <h2 class="section-heading text-white">Bin betroffen, was nun?</h2>
+                    <h2 class="section-heading text-white">Du bist betroffen, was nun?</h2>
                     <hr class="light">
                     <p class="text-faded">
                         Als erstes, keine Panik!<br>
@@ -110,7 +110,7 @@
                         Du solltest spätestens jetzt verstehen, dass du bei jedem Dienst ein anderes Passwort verwenden solltest anstatt immer wieder das gleiche zu benutzen.
                         <br><br>
 
-                        In den meiten Fällen wurden die Daten schon vor mehreren Jahren gestohlen. Die Veröffentlichung hat nur erst vor kurzem stattgefunden. Eventuell hast du dein Passwort also schon längst geändert bzw. nutzt es nicht mehr.
+                        In den meisten Fällen wurden die Daten schon vor mehreren Jahren gestohlen. Die Veröffentlichung hat nur erst vor kurzem stattgefunden. Eventuell hast du dein Passwort also schon längst geändert bzw. nutzt es nicht mehr.
                         <br><br>
 
                         Deine E-Mail Adresse ist jedoch wahrscheinlich schon für
@@ -126,13 +126,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Wieso machst du das?</h2>
+                    <h2 class="section-heading">Wieso mache ich das?</h2>
                     <hr class="primary">
                     <p class="text-black">
-                        Ich habe im Mai 2017 eine E-Mail von einem Administrator erhaltne, der mir berichtet hat, dass meine alte Uni Adresse bei einem Datendiebstahl enthalten sei.<br>
-                        Ich hatte schon vom Diebstahl bei Dropbox gehört, doch auf der Seite https://haveibeenpwned.com habe ich festgestellt, dass mehrere meiner E-Mail Adressen bei mehreren Datendiebstählen betroffen seien. Unter anderem auch im Klartext. Ich war ziemlich erschrocken aber wollte es genau wissen und versuchte an die Daten, die ja nun bereits veröffentlich worden sind, dranzukommen. Nach einer Weile habe ich die riesen Datenmengen gefunden und nach meiner E-Mail Adresse gesucht und tatsächlich waren 2 meiner Passwörter im Klartext vorhanden. Das schlimme ist, das eins davon sehr ähnlich zu meinem Amazon Passwort war.
+                        Ich habe im Mai 2017 eine E-Mail von einem Administrator erhalten, der mir berichtet hat, dass meine alte Uni Adresse bei einem Datendiebstahl enthalten sei.<br>
+                        Ich hatte schon vom Diebstahl bei Dropbox gehört, doch auf der Seite https://haveibeenpwned.com habe ich festgestellt, dass mehrere meiner E-Mail Adressen bei mehreren Datendiebstählen betroffen seien. Unter anderem sei ds Passwort auch im Klartext gewesen. Ich war ziemlich erschrocken aber wollte es genau wissen ob dies stimmt.Ich versuchte an die Datensätze zu kommen, die ja nun bereits irgendwo im Netz liegen. Nach einer Weile habe ich die riesen Datenmengen tatsächlich gefunden und nach meiner E-Mail Adresse gesucht. Und wahrhaftig waren 2 meiner Passwörter im Klartext zu sehen. Das schlimme ist, das eins davon sehr große Ähnlichkeit zu meinem Amazon Passwort hatte.
                         <br><br>
-                        Ich suchte nach E-Mail Adressen aus meinem Kontaktbuch und war schockiert wieviele davon
+                        Ich suchte nach E-Mail Adressen aus meinem Adressbuch und war schockiert wieviele davon
                         auch betroffen waren: alte und neue Freunde, Eltern, Cousins, Arbeitskollegen, Steuerberater, etc.
 
                         <br><br>
@@ -152,24 +152,32 @@
                     <h2 class="section-heading text-white">FAQ</h2>
                     <hr class="light">
 <h5>Werden E-Mails gespeichert, die geprüft werden?</h5>
-<p>Nein, es handelt sich nur um eine statische Webesite (ohne Server/Backend).<br>
+<p>Nein. Es handelt sich nur um eine statische Webesite (ohne Server/Backend).<br>
 Die Datenabfrage läuft über 2 Dienste, siehe nächste Frage</p>
 <h5>Was passiert wenn ich meine E-Mail überprüfen lasse?</h5>
 <p>Diese Webseite greift auf zwei öffentliche Schnittstellen zu:</p>
 <ul class="list-unstyled">
 <li><a href="https://haveibeenpwned.com">https://haveibeenpwned.com</a></li>
-<li><a href="https://hacked-emails.com">https://hacked-emails.com</a></li>
+<li><strike><a href="https://hacked-emails.com">https://hacked-emails.com</a></strike></li>
 </ul>
 <h5>Kann ich meinen Datensatz/Passwort einsehen?</h5>
-<p>Nein, wie schon gesagt, speichere ich keine Daten, da dies nur eine statische Webseite ist. Die anderen zwei Dienste haben nur die E-Mail Adressen gespeichert</p>
-<h5>Ich will aber  wissen welches Passwort/Datensatz von mir veröffentlich worden ist</h5>
-<p>Wenn du gut suchst, wirst du die Datensätze im Internet finden und selbst deinen Datensatz raussuchen können. Wenn du Hilfe brauchst, schreib mich per Twitter an.</p>
+<p>Nein. Wie schon gesagt,  hat diese Seite keinen direkten Zugriff auf die Daten, da dies nur eine statische Webseite ist. Die anderen zwei Dienste haben in ihren Datensätzen, die sie aus den Datendiebstahl extrahiert haben, nur E-Mail Adressen enthalten</p>
+
+<h5>Was genau bedeutet schlecht verschlüsseltes Passwort?</h5>
+<p>Aus Sicherheitsgründen sollten Dienste Passwörter ihrer Nutzer niemals im Klartext speichern, sondern verschlüsseln. Daran halten sich leider nicht alle Dienste (z.B: VK). Doch selbst wenn die Passwörter in den Datenbanken der Dienste verschlüsselt worden sind, ist dies keine Garantie, dass man daraus das Passwort im Klartext zurückrechnen kann. Es gibt viele Faktoren wie das <a target="_blank" href="https://de.wikipedia.org/wiki/Symmetrisches_Kryptosystem">Verschlüsselungsverfahren</a> und das sogenannte <a target="_blank" href="https://de.wikipedia.org/wiki/Salt_(Kryptologie)">"Salz"</a>.
+Das Verfahren MD5 gilt schon lange als unsicher, neuerdings auch das <a target="_blank" href="https://www.heise.de/security/meldung/Admins-aufgepasst-SHA1-Zertifikate-vor-dem-endgueltigen-Aus-3460868.html">SHA1</a>Verfahren. Das bedeutet entweder dass man bei diesen Verfahren das Passwort wieder entschlüsseln kann oder, dass für relativ einfache bzw. kurze Passwörter es Listen im Internet gibt, die das Passwort und den verschlüsselten Wert enthalten. Diese sind durch Ausprobieren aller dieser Passwörter entstanden.
+</p>
+
+<h5>Ich will aber wissen welches Passwort/Datensatz von mir veröffentlich worden ist</h5>
+<p>Du kannst dich anhand des Datums versuchen zu erinnern, welches Passwort du damals genutzt hast. Ansonsten kannst du versuchen die aus dem Datendiebstahl veröffentlichen Datensätze selbst im Internet zu finden und anschließend deinen Datensatz raussuchen. Wenn du Hilfe brauchst, schreib mich per Twitter an.</p>
+
 <h5>Wie kann ich sicher sein, dass die E-Mail Adressen bei dieser Webseite oder den anderen Diensten nicht gespeichert und missbraucht werden.</h5>
-<p>Ich kann dir nur mit Sicherheit sagen, dies ist eine statische Webseite. Der Quellcode befindet sich hier und wird direkt von GitHub Server bereitgestellt. Mit anderen Worten: es ist für alle sichtbar welcher Quellcode sich hinter dieser Seite verbirgt:<br>
-<a href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">github.com/wurde-ich-gehackt</a></p>
+<p>Ich kann dir nur mit Sicherheit sagen, dass dies ist eine statische Webseite ist. Der Quellcode befindet sich <a href="https://github.com/wurde-ich-gehackt/wurde-ich-gehackt.github.io">hier</a> und wird direkt von GitHub bereitgestellt. Mit anderen Worten: es ist für alle jederzeit sichtbar, welcher Quellcode sich hinter dieser Seite verbirgt.
+</p>
 <p>Ob die anderen Dienste sich wirklich daran halten, kann ich natürlich nicht zu 100% sagen. Wenn dir das nicht ausreicht und du aber dem Hasso-Plattner-Institut an der Uni Potsdam mehr vertraust, kannst du auch dort eine Datenabfrage durchführen: <a href="https://sec.hpi.uni-potsdam.de/leak-checker/search">https://sec.hpi.uni-potsdam.de/leak-checker/search</a></p>
-<h5>Wird gar nichts gespeichert auf der Seite?</h5>
-<p>Doch und zwar Cookies + anonymes Besuchertracking (sowas wie Google Analytics). Ich möchte nämlich gerne wissen wieviele Personen diese Webseite besuchen und nutzen. Die geprüfte E-Mail wird selbstverständlich <strogn>nicht<strong> mitgetrackt. Wenn dir das nicht gefällt, lass es sein oder besorge dir einen Werbe-Blocker.</p>
+
+<h5>Wird auf dieser Seite also gar nichts gespeichert?</h5>
+<p>Doch und zwar Cookies + anonymes Besuchertracking (sowas wie Google Analytics). Ich möchte nämlich gerne wissen wieviele Personen diese Webseite besuchen und nutzen. Die geprüfte E-Mail wird selbstverständlich <strong>nicht</strong> in die Statistik aufgenommen. Wenn dir das nicht gefällt, lass es sein oder besorge dir einen Werbe-Blocker oder nutze den Service vom Hasso-Plattner-Institut.</p>
                 </div>
             </div>
         </div>
