@@ -93,7 +93,7 @@
             checkButton.find('i').hide();
             if (data.length > 0 || data2.results > 0) {
               try {
-                window.woopra.track("checked-found", {
+                window.mixpanel.track("checked-found", {
                     hibp: data.length,
                     hackedEmails: data2.results
                 });
@@ -122,7 +122,7 @@
             } else {
               $('#result-ok').show();
               try {
-                window.woopra.track("checked-nothing");
+                window.mixpanel.track("checked-nothing");
               } catch (err) {}
             }
         } catch (err) {
@@ -148,7 +148,7 @@
         $('#result-status').hide();
         checkButton.find('i').show();
         try {
-            window.woopra.track("pess-button");
+            window.mixpanel.track("pess-button");
         } catch (err) {}
         
         var results = {};
