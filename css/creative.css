@@ -373,3 +373,7 @@ li.divider {
   width: 100%;
   margin: 0 auto;
 }
+
+.table.left-align td {
+  text-align: left !important;
+}

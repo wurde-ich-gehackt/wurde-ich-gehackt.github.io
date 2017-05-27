@@ -72,7 +72,7 @@
      * Custom Code
      */
 
-    var list = $('#found-list');
+    var list = $('#table-results');
     var checkButton = $('#check-button');
 
     function validateEmail(email) {
@@ -98,24 +98,33 @@
                     hackedEmails: data2.results
                 });
               } catch (err) {}
-              $('#found-amount').text(data.length + ' bzw. ' + data2.results + ' Einträge');
+              var summary = 'Es wurden ' + data.length + ' Einträge auf haveibeenpwned.com und ' + data2.results + ' auf hacked-emails.com gefunden.';
+              summary += '<br><a href="#results">Ergebnisse anzeigen</a>'
+              $('#found-amount').html(summary);
+              $('#result').show();
               data.forEach(function(item) {
-                var item = "<li><strong>" +
-                 item.Name + ":</strong> Diebstahl am " + item.BreachDate + ", Veröffentlichung am "
-                  + item.AddedDate.substr(0, 10) + " (" 
-                  + item.DataClasses.join(', ') + ")  <a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" 
-                  + item.Name + "'>" + (item.IsVerified ? "<i title='verifiziert' class='fa fa-check'></i>" : "")
-                  + "<i title='Quelle' class='fa fa-link'></i></a></li>";
-                list.append(item);
+                var entry = "<tr><td>haveibeenpwned</td><td>" +
+                    "<a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" +
+                        + item.Name + "'>" + item.Name + "</a></td><td>" +
+                    item.DataClasses.join(', ') + "</td><td>" +
+                    item.BreachDate + "</td><td>" +
+                    item.AddedDate.substr(0, 10) + "</td><td>" +
+                    item.PwnCount.toLocaleString() + "</td><td>" +
+                    (item.IsVerified ? "<i title='verifiziert' class='fa fa-check'></i>" : "") + "</td><td>" +
+                    "</td></tr>";
+                list.append(entry);
               });
-              list.append('<li role="separator" class="divider"></li>');
               data2.data.forEach(function(item) {
-                var item = "<li><strong>"+
-                 item.title + ":</strong> Veröffentlichung am "
-                  + item.date_leaked.substr(0, 10) + " <a target='hackedemails' href='" 
-                  + item.details + "'>" + (item.verified ? "<i title='verifiziert' class='fa fa-check'></i>" : "")
-                  + "<i title='Quelle' class='fa fa-link'></i></a></li>";
-                list.append(item);
+                var entry = "<tr><td>hacked-emails</td><td>" +
+                    "<a target='hackedemails' href='" + item.details + "'>" +
+                        item.title + "</a></td><td>" +
+                    "</td><td>" +
+                    item.date_leaked.substr(0, 10) + "</td><td>" +
+                    "</td><td>" +
+                    item.emails_count.toLocaleString() + "</td><td>" +
+                    (item.verified ? "<i title='verifiziert' class='fa fa-check'></i>" : "") + "</td><td>" +
+                    "</td></tr>";
+                list.append(entry);
               });
 
               $('#result-found').show();
@@ -169,6 +178,10 @@
             $('#result-status').show();
           });
     }
+
+    setTimeout(() => {
+        $('#check-email').focus();
+    }, 1)
 
     $(document).keypress(function(e) {
         if (e.which == 13) {

@@ -83,7 +83,7 @@
                     <h3>Prüfe ob deine E-Mail Adresse im Zusammenhang mit einem Datendiebstahl veröffentlich worden ist</h3>
                     <br>
                     <div class="input-group input-group-lg">
-                        <input name="email" id="check-email" type="email" class="form-control" maxlength="255">
+                        <input autofocus name="email" id="check-email" type="email" class="form-control" maxlength="255">
                     </div>
                     <br>
                     <p><a id="check-button" class="btn btn-lg btn-success" href="javascript:;" role="button">Jetzt prüfen <i style="display: none;" class="fa fa-spinner fa-spin"></i></a></p>
@@ -104,6 +104,32 @@
             </div>
         </div>
     </header>
+
+    <section id="result" style="display: none">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" id="results" name="results">
+                    <h2 class="section-heading">Ergebnisse</h2>
+                    <hr class="primary">
+                    <table class="table table-responsive left-align">
+                      <thead class="thead-default">
+                        <tr>
+                          <th>API</th>
+                          <th>Name</th>
+                          <th>Daten</th>
+                          <th>Diebstahl&nbsp;&nbsp;&nbsp;</th>
+                          <th>Veröffentlichung</th>
+                          <th>Anzahl E-Mails</th>
+                          <th>Verifiziert</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table-results">
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="bg-primary" id="was-ist-passiert">
         <div class="container">
@@ -188,7 +214,26 @@ Das Verfahren <a target="_blank" href="https://www.heise.de/security/meldung/Aut
 </p>
 
 <h5>Wie sieht ein gestohlener Datensatz aus?</h5>
-<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Antwort in Bearbeitung</p>
+<p>
+    Sehr unterschiedlich. Der Datendiebstahl bei Dropbox ist beispielsweise aufgeteilt in mehrere Dateien, die jeweils einen unterschiedliches Verschlüsselungsverfahren für die Passwörter verwenden. Anscheinend hat Dropbox ihr Verschlüsselungsverfahren in der Vergangenheit geändert. Datensätze mit der SHA1 Verschlüsselung sehen so aus:
+    <pre>
+        ■■■■■■■■■eney@gmail.com:1e4d8d6b242da393361fb2ad3e183c4dedf0553b
+    </pre>
+    Die Datensätze mit dem Blowfish Verschlüsselungsverfahren sehen so aus:
+    <pre>
+        ■■■■■■■■■■ehani@gmail.com:$2a$08$RIooHsfmKfgAozQ3/7bED.iBLHk9nbAp0/otH8sDJZVGumSvJnf4O
+    </pre>
+    Die Datensätze bei VK sind gar nicht verschlüsselt, das Passwort liegt also im Klartext vor:
+    <pre>
+        ■■■■■■■■■jewa@yandex.ru:kleopatra
+    </pre>
+    Die Daten von lastfm enthalten deutlich mehr Daten, wahrscheinlich direkt aus einer Datenbank extrahiert, das Schema ist jedoch nicht enthalten, dennoch kann man einiges Datenfelder gut verstehen:
+    <pre>
+        26152683    ■■■■■■■■■■like  ■■■■■■■■■er@gmx.de  28e882b00b9b8a1d45e1deef3925e114    2010-01-19 20:39:01 f   \N  lastfm  f   \N  t   t   \N  0   0   0   5   \N  http://www.lastfm.de/settings/lostpassword  f   0f  \N  t   t
+    </pre>
+    In diesem Fall lautet das verschlüsselte Passwort <strong>28e882b00b9b8a1d45e1deef3925e114</strong>. Da es jedoch mit einem alten und unsicher Verfahren verschlüsselt worden ist, kann man es sehr leicht entschlüsseln. Das entschlüsselte Passwort lautet <strong>coolso</strong>.
+
+</p>
 
 <h5>Bei welchen Datendiebstählen wurde welches Verschlüsselungsverfahren benutzt?</h5>
 <p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Antwort in Bearbeitung</p>
