@@ -105,7 +105,7 @@
               data.forEach(function(item) {
                 var entry = "<tr><td>haveibeenpwned</td><td>" +
                     "<a target='haveibeenpwned' href='https://haveibeenpwned.com/PwnedWebsites#" +
-                        + item.Name + "'>" + item.Name + "</a></td><td>" +
+                        item.Name + "'>" + item.Name + "</a></td><td>" +
                     item.DataClasses.join(', ') + "</td><td>" +
                     item.BreachDate + "</td><td>" +
                     item.AddedDate.substr(0, 10) + "</td><td>" +
